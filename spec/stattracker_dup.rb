@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require 'pry'
 require '../futbol/lib/stat_tracker'
 

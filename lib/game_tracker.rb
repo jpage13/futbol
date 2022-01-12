@@ -1,5 +1,5 @@
-require './lib/data_collector'
-require './lib/calculator'
+require_relative './data_collector'
+require_relative  './calculator'
 
 class GameTracker < Statistics
   include DataCollector

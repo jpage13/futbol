@@ -1,5 +1,5 @@
-require './lib/data_collector'
-require './lib/calculator'
+require_relative './data_collector'
+require_relative './calculator'
 
 class SeasonTracker < Statistics
   include DataCollector
@@ -39,4 +39,4 @@ class SeasonTracker < Statistics
     outcome == 'most' ? find_name_by_ID(tackle_count_hash.key(tackle_count_hash.values.max))[0].team_name :
       find_name_by_ID(tackle_count_hash.key(tackle_count_hash.values.min))[0].team_name
   end
-end 
+end

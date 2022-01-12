@@ -4,7 +4,7 @@ require_relative './game_tracker'
 require_relative './team_tracker'
 require_relative './season_tracker'
 require_relative './game_team_tracker'
-
+# require_relative './data_colletor'
 class StatTracker
   def self.from_csv(locations)
     StatTracker.new(locations)
@@ -54,11 +54,11 @@ class StatTracker
   end
 
   def best_offense
-    @game_team_tracker.offense("best", data)
+    @game_team_tracker.offense("best")
   end
 
   def worst_offense
-    @game_team_tracker.offense("worst", data)
+    @game_team_tracker.offense("worst")
   end
 
   def highest_scoring_visitor
@@ -66,7 +66,7 @@ class StatTracker
   end
 
   def highest_scoring_home_team
-    @game_team_tracker.home_away_scoring("best")
+    @game_team_tracker.home_scoring("best")
   end
 
   def lowest_scoring_visitor
@@ -74,7 +74,7 @@ class StatTracker
   end
 
   def lowest_scoring_home_team
-    @game_team_tracker.home_away_scoring("worst")
+    @game_team_tracker.home_scoring("worst")
   end
 
   def team_info(team_id)
