@@ -51,13 +51,13 @@ ___Data Files___
 
 
 - average_goals_by_season.csv : CSV file containing the data for the average goals by season
-- game_teams.csv              : CSV file that contains game team data with data such as home or away, coach, shots, goals, etc
-- game_teams_stub.csv         : CSV dummy file we created to contain game team data with data such as home or away, coach, shots, goals, etc
+- game_teams.csv              : CSV file that contains game team data with data such as home or away, coach, etc.
+- game_teams_stub.csv         : CSV dummy file created to contain game team data with home or away, coach, shots, goals, etc
 - games.csv                   : CSV file containing the data for season, home and away team id, home and away goals, etc.
-- games_stub.csv              : CSV dummy file we created that contains some of the data for season, home and away team id, home and away goals, etc.
-- games_stub_2.csv            : CSV dummy file we created that contains some  different data for season, home and away team id, home and away goals, etc.
+- games_stub.csv              : CSV dummy file created that contains some data for season, home and away team id, home and away goals, etc.
+- games_stub_2.csv            : CSV dummy file created that contains some data for season, home and away team id, home and away goals, etc.
 - teams.csv                   : CSV file containing the data for franchise id, team name, stadium, etc.
-- teams_stub.csv              : CSV dummy file we created to hold some of the data for franchise id, team name, stadium, etc.
+- teams_stub.csv              : CSV dummy file created to hold some of the data for franchise id, team name, etc.
 
 ___Additional Files___
 
@@ -67,14 +67,10 @@ ___Additional Files___
 
 ___Contributors___
 
-Greg Flaherty
-github: gregoryjflaherty
+Greg Flaherty || github: gregoryjflaherty
 
-Joe Galvin
-github: jwgalvin
+Joe Galvin || github: jwgalvin
 
-Adrian Campos
-github: adriancampos29
+Adrian Campos || github: adriancampos29
 
-Jimmy Page
-github: jpage13
+Jimmy Page || github: jpage13
