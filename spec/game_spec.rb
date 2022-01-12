@@ -41,6 +41,7 @@ RSpec.describe do Game
       game_teams: './data/game_teams_stub.csv'}
     gametracker = GameTracker.new(locations)
     expect(gametracker.percentage_wins('home')).to be(0.68)
+
   end
 
   it 'percentage_visitor_wins' do

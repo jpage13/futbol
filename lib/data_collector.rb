@@ -15,17 +15,10 @@ module DataCollector
     end
   end
 
-  def group_by_data_hash(data, by_attr)
-    return_hash = data.group_by do |game|
-      if by_attr == 'season'
-        game.season
-      elsif by_attr == 'head_coach'
-        game.head_coach
-      elsif by_attr == 'team_id'
-        game.team_id
-      end 
+  def games_by_season_hash
+    @games.group_by do |game|
+      game.season
     end
-    return_hash
   end
 
   def get_team(team_id)
@@ -46,5 +39,38 @@ module DataCollector
 
   def count_games_per_team(team_id, data)
     (data.find_all {|game| game.team_id == team_id}).length
+  end
+
+
+  def sort_games(data)
+    data.group_by {|game| game.team_id}
+  end
+
+  def best_or_worse(best_worse,hash)
+    if best_worse == "best"
+      find_name_by_ID(hash.key(hash.values.max))[0].team_name
+    else best_worse == "worst"
+      find_name_by_ID(hash.key(hash.values.min))[0].team_name
+    end
+  end
+
+  def goal_counter(game_hash)
+    team_hash = game_hash.transform_values do |games|
+      goals = games.reduce(0) {|sum, game| sum + game.goals }
+      goals.to_f / games.length
+    end
+  end
+
+  def group_by_data_hash(data, by_attr)
+    return_hash = data.group_by do |game|
+      if by_attr == 'season'
+        game.season
+      elsif by_attr == 'head_coach'
+        game.head_coach
+      elsif by_attr == 'team_id'
+        game.team_id
+      end
+    end
+    return_hash
   end
 end

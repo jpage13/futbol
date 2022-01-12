@@ -54,27 +54,27 @@ class StatTracker
   end
 
   def best_offense
-    @game_team_tracker.best_offense
+    @game_team_tracker.offense("best", data)
   end
 
   def worst_offense
-    @game_team_tracker.worst_offense
+    @game_team_tracker.offense("worst", data)
   end
 
   def highest_scoring_visitor
-    @game_team_tracker.highest_scoring_visitor
+    @game_team_tracker.scoring_visitor("best")
   end
 
   def highest_scoring_home_team
-    @game_team_tracker.highest_scoring_home_team
+    @game_team_tracker.home_away_scoring("best")
   end
 
   def lowest_scoring_visitor
-    @game_team_tracker.lowest_scoring_visitor
+    @game_team_tracker.scoring_visitor("worst")
   end
 
   def lowest_scoring_home_team
-    @game_team_tracker.lowest_scoring_home_team
+    @game_team_tracker.home_away_scoring("worst")
   end
 
   def team_info(team_id)
