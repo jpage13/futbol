@@ -1,43 +1,33 @@
 class GameTeamTracker < Statistics
+  include DataCollector
+  
   def count_of_teams
     unique = @game_teams.map {|game|game.team_id}
     unique.uniq.count
   end
 
-  def best_offense # look at breaking into different methods
+  def best_offense
     best_team = {}
-    max = 0
     sorted = @game_teams.group_by {|game| game.team_id}
     key_hash = {}
-    #goal_average_calculator(team_hash)
     sorted.map do |key, sorted|
       goals = sorted.sum {|game| game.goals}
-      total_games = sorted.count
-      average = goals.to_f / total_games
-      key_hash[key] = average
-      key_hash = key_hash.to_h
-      max = key_hash.values.max
-      best_team = key_hash.select {|k,v| v == max}
+      key_hash[key] = goals.to_f / sorted.count
+      best_team = key_hash.select {|k,v| v == key_hash.values.max}
     end
-    find_name_by_ID(best_team.keys[0])[0].teamname
+    find_name_by_ID(best_team.keys[0])[0].team_name
   end
 
-  def worst_offense # look at breaking into different methods
+  def worst_offense
     worst_team = {}
-    min = 0
     sorted = @game_teams.group_by {|game| game.team_id}
     key_hash = {}
-    #goal_average_calculator(team_hash)
     sorted.map do |key, sorted|
       goals = sorted.sum {|game| game.goals}
-      total_games = sorted.count
-      average = goals.to_f / total_games
-      key_hash[key] = average
-      key_hash = key_hash.to_h
-      min = key_hash.values.min
-      worst_team = key_hash.select {|k,v| v == min}
+      key_hash[key] = goals.to_f / sorted.count
+      worst_team = key_hash.select {|k,v| v == key_hash.values.min}
     end
-    find_name_by_ID(worst_team.keys[0])[0].teamname
+    find_name_by_ID(worst_team.keys[0])[0].team_name
   end
 
   def highest_scoring_visitor
@@ -47,7 +37,6 @@ class GameTeamTracker < Statistics
     end
     away_team = away_array.group_by {|game| game.team_id}
     key_hash = {}
-    #goal_average_calculator(team_hash)
     away_team.map do |key, away_team|
       goals = away_team.sum {|game| game.goals}
       total_games = away_team.count
@@ -57,8 +46,7 @@ class GameTeamTracker < Statistics
       max = key_hash.values.max
       highest_visitor = key_hash.select {|k,v| v == max}
     end
-    find_name_by_ID(highest_visitor.keys[0])[0].teamname
-    #binding.pry
+    find_name_by_ID(highest_visitor.keys[0])[0].team_name
   end
 
   def lowest_scoring_visitor
@@ -78,7 +66,7 @@ class GameTeamTracker < Statistics
       min = key_hash.values.min
       lowest_visitor = key_hash.select {|k,v| v == min}
     end
-    find_name_by_ID(lowest_visitor.keys[0])[0].teamname
+    find_name_by_ID(lowest_visitor.keys[0])[0].team_name
   end
 
   def highest_scoring_home_team
@@ -98,7 +86,7 @@ class GameTeamTracker < Statistics
       max = key_hash.values.max
       high_home = key_hash.select {|k,v| v == max}
     end
-    find_name_by_ID(high_home.keys[0])[0].teamname
+    find_name_by_ID(high_home.keys[0])[0].team_name
   end
 
   def lowest_scoring_home_team
@@ -118,6 +106,6 @@ class GameTeamTracker < Statistics
       min = key_hash.values.min
       low_home = key_hash.select {|k,v| v == min}
     end
-    find_name_by_ID(low_home.keys[0])[0].teamname
+    find_name_by_ID(low_home.keys[0])[0].team_name
   end
 end
