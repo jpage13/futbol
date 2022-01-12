@@ -1,4 +1,3 @@
-require 'pry'
 module DataCollector
   def find_name_by_ID(name_id)
     @teams.select do |team|
@@ -41,6 +40,7 @@ module DataCollector
   def count_games_per_team(team_id, data)
     (data.find_all {|game| game.team_id == team_id}).length
   end
+
 
   def sort_games(data)
     data.group_by {|game| game.team_id}

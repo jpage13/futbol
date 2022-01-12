@@ -2,6 +2,7 @@ require './lib/data_collector'
 
 class GameTeamTracker < Statistics
   include DataCollector
+  
   def count_of_teams
     unique = @game_teams.map {|game|game.team_id}
     unique.uniq.count

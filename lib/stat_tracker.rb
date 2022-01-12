@@ -110,26 +110,26 @@ class StatTracker
   end
 
   def winningest_coach(season)
-    @season_tracker.winningest_coach(season)
+    @season_tracker.best_worst_coach(season, 'best')
   end
 
   def worst_coach(season)
-    @season_tracker.worst_coach(season)
+    @season_tracker.best_worst_coach(season, 'worst')
   end
 
   def most_accurate_team(season)
-    @season_tracker.most_accurate_team(season)
+    @season_tracker.accurate_team(season, 'most')
   end
 
   def least_accurate_team(season)
-    @season_tracker.least_accurate_team(season)
+    @season_tracker.accurate_team(season, 'least')
   end
 
   def most_tackles(season)
-    @season_tracker.most_tackles(season)
+    @season_tracker.tackle_results(season, 'most')
   end
 
   def fewest_tackles(season)
-    @season_tracker.fewest_tackles(season)
+    @season_tracker.tackle_results(season, 'fewest')
   end
 end
