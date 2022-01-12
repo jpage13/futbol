@@ -9,7 +9,7 @@ Welcome to the README for the Futbol project.
  - We wanted to see determined statistics such as best and worst performances, best and worst coaches, most and least accurate teams, most and least tackles, etc.
  - Anything of value in terms of gathering information on a team to be able to gauge their performance was tracked and used.
  - The dataset was gathered using CSV files. Since the data set was so large, we broke down the CSV files into smaller ones to test bits of data rather than the entire thing. This helped as we weren't using the entire 5000 plus data points every time we wanted to test our methods.
-
+- 100% lines of coverage when using simple cov testing. This means every single line of code is tested and has passed its test.
 
 ### Goals
 
@@ -27,16 +27,17 @@ Some of the main goals from this project were:
 ___Class Files___
 
 
-- calculator.rb        :
-- data_collector.rb    :   
-- game_team.rb         :
-- game_team_tracker.rb :  
-- game_tracker.rb      :
-- season_tracker.rb    :
-- stat_tracker.rb      :
-- statistics.rb        :
-- team.rb              :
-- team_tracker.rb      :
+- calculator.rb        : Module used for calculations across classes
+- data_collector.rb    : Module used for repetitive data parsing - Helped achieve DRY (Do not repeat) and PORO (Plain Old Ruby Objects)
+- game_team_tracker.rb : Class holding methods to extract specific data points for game team class
+- game_tracker.rb      : Class holding methods to extract specific data points for game class
+- season_tracker.rb    : Class holding methods to extract specific data points for teams and game teams classes
+- stat_tracker.rb      : Class holding methods to hold entirety of project methods
+- statistics.rb        : Class that was responsible for turning CSV data into ruby objects
+- team.rb              : Class that held attributes for objects extracted from teams.csv
+- team_tracker.rb      : Class holding methods to extract specific data points for team class
+- game.rb              : Class that held attributes for objects extracted from game.csv
+- game_team.rb         : Class that held attributes for objects extracted from game_team.csv
 
 ___Spec Files___
 
