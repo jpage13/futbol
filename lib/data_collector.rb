@@ -15,12 +15,6 @@ module DataCollector
     end
   end
 
-  # def games_by_season_hash
-  #   @games.group_by do |game|
-  #     game.season
-  #   end
-  # end
-
   def get_team(team_id)
     @teams.find do |team|
       team.team_id == team_id
